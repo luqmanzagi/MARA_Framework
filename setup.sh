@@ -5,6 +5,7 @@
 #Package update
 sudo apt-get update
 sudo pip install --upgrade pip
+sudo pip3 install --upgrade pip
 
 #Python-pip
 sudo apt-get -y install python-pip
@@ -48,9 +49,9 @@ sudo pip install smalisca
 
 #APKiD
 cd tools
-git clone https://github.com/rednaga/yara-python              
+git clone --recursive https://github.com/rednaga/yara-python-1 yara-python             
 cd yara-python
-sudo python setup.py install
+sudo python setup.py build --enable-dex install
 sudo pip install apkid
 cd ../../
 
@@ -58,10 +59,13 @@ cd ../../
 sudo apt-get install -y whatweb
 
 #trueseeing
-sudo pip install trueseeing
+sudo pip3 install trueseeing
  
 #Increase maximum java heap size for Jadx
 export JAVA_OPTS="-Xmx4G"
 source ~/.bashrc
+
+#make tools executable
+chmod -R +x tools/
 
 exit
